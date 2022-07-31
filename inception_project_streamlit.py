@@ -41,7 +41,7 @@ if selected_menu == "Home":
 
     if st.button("Search"):
         st.success("Search started")
-        with st.spinner(text = "Searching, Please wait...?"):
+        with st.spinner(text = "Please wait..."):
 
             #######################################################################################    
 
