@@ -1,4 +1,5 @@
 import streamlit as st
+from streamlit_option_menu import option_menu
 from keras.preprocessing.image import load_img, img_to_array
 from keras.applications.inception_v3 import preprocess_input, decode_predictions, InceptionV3
 from tensorflow.keras.models import load_model
@@ -10,11 +11,18 @@ import os
 import glob
 import shutil
 
+selected_menu = option_menu(
+        menu_title = None,
+        options = ["Home", "About The Developer", "Contact"],
+        icons = ["house", "person-workspace","envelope"],
+        menu_icon = "cast",
+        orientation = "horizontal"
+)
 
 #------------------------------------Page 1 ----------------------------------------
-rad = st.sidebar.radio("Navigation", ["Home", "About The Developer"])
+#rad = st.sidebar.radio("Navigation", ["Home", "About The Developer"])
 
-if rad == "Home":
+if selected_menu == "Home":
     #################################selecting video ################################
     st.title("My Inception V3 Model")
 
@@ -181,7 +189,7 @@ if rad == "Home":
 
 #-------------------------------------PAGE 2 ----------------------------------------------------
 
-elif rad == "About The Developer":
+elif selected_menu == "About The Developer":
     #st.title("Who is he?")
     #st.write("The best there is")
     col1, col2 = st.columns(2)
@@ -197,6 +205,10 @@ elif rad == "About The Developer":
 
     st.write("Brandon is a creative, Data Science student at the University of Zimbabwe who is enthusiastic about executing data driven solutions to increase efficiency, accuracy and utility of internal data processing. He is driven by a strong PASSION AND PURPOSE for solving data problems.")
 
-
+    
+    
+ #-------------------------------------PAGE 3 ----------------------------------------------------
+elif selected_menu == "Contact":
+    st.write("Calls     : +263 776 464 136/ +263 77 586 0625         \nWhatsApp : +263 776 464 136        \nEmail : brandonmutombwa@gmail.com")
 
     
